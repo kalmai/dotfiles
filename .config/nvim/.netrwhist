@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
-let g:netrw_dirhist_4='/home/kalmai/Development/app-gaslight/app/views/welcome'
-let g:netrw_dirhist_3='/etc/sudoers.d'
-let g:netrw_dirhist_2='/home/kalmai/Development/Ruby/tranquil-river-94138/app/views/layouts'
-let g:netrw_dirhist_1='/home/kalmai/Development/Ruby/odin_project/event_manager'

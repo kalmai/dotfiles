@@ -1,14 +1,33 @@
+call plug#begin('~/.config/nvim/plugged')
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'jlanzarotta/bufexplorer'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+  Plug 'kassio/neoterm'
+  Plug 'michaeljsmith/vim-indent-object'
+  Plug 'scrooloose/nerdtree'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'junegunn/goyo.vim'
+call plug#end()
+
+nmap <silent> <LocalLeader>nt :NERDTreeToggle<CR>
+nmap <silent> <LocalLeader>p :Files<CR>
+
 set number
 set visualbell
 
 if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
   set termguicolors
+
+  let g:tokyonight_style = 'storm' " available: night, storm
+  let g:tokyonight_enable_italic = 1
+
+  colorscheme tokyonight
 endif
-hi Normal ctermbg=NONE
 
 set background=dark
 set t_Co=256
-colorscheme lucid
+hi Normal guibg=NONE ctermbg=NONE
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif

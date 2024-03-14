@@ -15,6 +15,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'kenn7/vim-arsync'
   Plug 'tpope/vim-rhubarb'
   Plug 'ThePrimeagen/harpoon'
+  " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " enable when working with MD files
 call plug#end()
 
 map <Space> <Leader> " remap leader key from '\' to '<Space>'
@@ -27,7 +28,9 @@ nmap <silent> <LocalLeader>cw :Telescope grep_string word_match=-w prompt_title=
 nmap <silent> <LocalLeader>f :Telescope live_grep only_sort_text=true prompt_title=""<CR> " search project for instances of input
 nmap <silent> <Leader>b <cmd>Telescope buffers sort_mru=true<CR> " browse opened buffers
 
+" Fugitive
 nmap <silent> <LocalLeader>gd :Git diff<CR> " see git diff in horizontal split
+nmap <silent> <LocalLeader>gmt :Git mergetool<CR> " open quicklist of merge conflicts
 
 " Ruby
 nmap <silent> <Leader>c :! rubocop -a %<cr> " soft autocorrect with rubocop

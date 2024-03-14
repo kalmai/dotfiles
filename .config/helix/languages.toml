@@ -1,0 +1,4 @@
+[[language]]
+name = "ruby"
+formatter = { command = "bundle", args = ["exec", "rubocop", "--stdin", "foo.rb", "--fix", "--stderr"] }
+auto-format = true

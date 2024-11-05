@@ -31,4 +31,19 @@ require('telescope').setup({
     }
   }
 })
+require("darkrose").setup({
+    -- Override colors
+    colors = {
+    },
+    -- Override existing or add new highlight groups
+    -- Styles to enable or disable
+    styles = {
+        bold = true, -- Enable bold highlights for some highlight groups
+        italic = false, -- Enable italic highlights for some highlight groups
+        underline = false, -- Enable underline highlights for some highlight groups
+    }
+})
+vim.cmd.colorscheme("darkrose")
+vim.o.termguicolors = true
 require("telescope").load_extension('file_browser')
+

@@ -22,6 +22,7 @@ map <Space> <Leader>
 
 " Telescope keybinds
 nmap <silent> <LocalLeader>r :Telescope resume<CR>
+nmap <silent> <LocalLeader>h :Telescope pickers<CR>
 nmap <silent> - :Telescope file_browser path=%:p:h select_buffer=true<CR>
 nmap <silent> <LocalLeader>n :Telescope file_browser<CR>
 nmap <silent> <LocalLeader>p <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_title=""<CR>

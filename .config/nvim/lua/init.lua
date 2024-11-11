@@ -4,6 +4,11 @@ require('telescope').setup({
     borderchars = { "", "", "", "", "", "", "", "" },
     results_title = "",
     prompt_title = "",
+    cache_picker = {
+      num_pickers = 20,
+      limit_entries = 50,
+      ignore_empty_prompt = true,
+    },
     path_display={ "smart" },
     file_ignore_patterns = { "%.git" },
     dynamic_preview_title = false,

@@ -105,7 +105,7 @@ endif
 if has('persistent_undo')      "check if your vim version supports it
   set undofile                 "turn on the feature  
   set undodir=$HOME/.undodir   "directory where the undo files will be stored
-endif 
+endif
 
 " Dim inactive windows using 'colorcolumn' setting
 " This tends to slow down redrawing, but is very useful.
@@ -140,7 +140,7 @@ endif
 " endif
 
 let g:lightline = {
-  \ 'colorscheme': 'ayu_dark',
+  \ 'colorscheme': 'rosepine',
   \ 'active': {
   \   'right': [ [ 'syntastic', 'lineinfo' ],
   \              [ 'percent' ],
@@ -161,7 +161,7 @@ function! LightlineModified()
   let map = { 'V': 'n', "\<C-v>": 'n', 's': 'n', 'v': 'n', "\<C-s>": 'n', 'c': 'n', 'R': 'n'}
   let mode = get(map, mode()[0], mode()[0])
   "add last two chars in bgcolor to hex codes below with a 00 for darkmode
-  let bgcolor = {'n': [240, '#23293200'], 'i': [31, '#23293200']}
+  let bgcolor = {'n': [240, '#232932'], 'i': [31, '#232932']}
   let color = get(bgcolor, mode, bgcolor.n)
   exe printf('hi ModifiedColor ctermfg=196 ctermbg=%d guifg=#ff0000 guibg=%s term=bold cterm=bold',
   \ color[0], color[1])
@@ -205,4 +205,3 @@ let g:lightline.mode_map = {
 autocmd User TelescopePreviewerLoaded setlocal wrap number
 verbose set conceallevel=0
 luafile ~/.config/nvim/lua/init.lua
-

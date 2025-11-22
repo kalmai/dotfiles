@@ -16,9 +16,13 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'water-sucks/darkrose.nvim'
   " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " enable when working with MD files
   Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'elixir-editors/vim-elixir'
+  Plug 'rust-lang/rust.vim'
+  Plug 'fatih/vim-go'
 call plug#end()
 
 map <Space> <Leader>
+nmap <Leader>yy :let @+ = expand("%")<cr>
 
 " Telescope keybinds
 nmap <silent> <LocalLeader>r :Telescope resume<CR>
@@ -37,9 +41,10 @@ nmap <silent> <LocalLeader>gmt :Git mergetool<CR>
 " Ruby
 nmap <silent> <Leader>c :! rubocop -a %<cr>
 nmap <silent> <Leader>C :! rubocop -A %<cr>
-nmap <Leader>yy :let @+ = expand("%")<cr>
-vnoremap <silent> <LocalLeader>/ :norm i#<cr>
-vnoremap <silent> <LocalLeader>? :norm x<cr>
+
+" Elixir
+nmap <silent> <Leader>mc :! mix format % --check-formatted<cr>
+nmap <silent> <Leader>mC :! mix format %<cr>
 
 " Harpoon
 map <C-F> <cmd>Telescope harpoon marks<CR>

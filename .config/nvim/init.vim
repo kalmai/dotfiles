@@ -10,31 +10,30 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'nvim-telescope/telescope-file-browser.nvim'
   Plug 'ryanoasis/vim-devicons'
   Plug 'kyazdani42/nvim-web-devicons'
-  " Plug 'kenn7/vim-arsync'
   Plug 'tpope/vim-rhubarb'
   Plug 'ThePrimeagen/harpoon'
   Plug 'water-sucks/darkrose.nvim'
+  Plug 'fatih/vim-go'
   " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " enable when working with MD files
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'elixir-editors/vim-elixir'
   Plug 'rust-lang/rust.vim'
-  Plug 'fatih/vim-go'
 call plug#end()
 
 map <Space> <Leader>
-nmap <Leader>yy :let @+ = expand("%")<cr>
 
 " Telescope keybinds
+nmap <silent> - :Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>
 nmap <silent> <LocalLeader>r :Telescope resume<CR>
 nmap <silent> <LocalLeader>h :Telescope pickers<CR>
-nmap <silent> - :Telescope file_browser path=%:p:h select_buffer=true<CR>
-nmap <silent> <LocalLeader>n :Telescope file_browser<CR>
-nmap <silent> <LocalLeader>p <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_title=""<CR>
+nmap <silent> <LocalLeader>n :Telescope file_browser hidden=true<CR>
+nmap <silent> <LocalLeader>p <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_title="" hidden=true<CR>
 nmap <silent> <LocalLeader>cw :Telescope grep_string word_match=-w prompt_title=""<CR>
 nmap <silent> <LocalLeader>f :Telescope live_grep only_sort_text=true prompt_title=""<CR>
 nmap <silent> <Leader>b <cmd>Telescope buffers sort_mru=true<CR>
 
 " Fugitive
+nmap <silent> <LocalLeader>g :tab G<CR>
 nmap <silent> <LocalLeader>gd :Git diff<CR>
 nmap <silent> <LocalLeader>gmt :Git mergetool<CR>
 
@@ -45,6 +44,8 @@ nmap <silent> <Leader>C :! rubocop -A %<cr>
 " Elixir
 nmap <silent> <Leader>mc :! mix format % --check-formatted<cr>
 nmap <silent> <Leader>mC :! mix format %<cr>
+
+nmap <Leader>yy :let @+ = expand("%")<cr>
 
 " Harpoon
 map <C-F> <cmd>Telescope harpoon marks<CR>
@@ -67,6 +68,7 @@ vnoremap <silent> <LocalLeader>gb :GBrowse<CR>
 
 let g:github_enterprise_urls = [''] " browse github enterprise files in github
 
+set tabstop=2
 set confirm
 set noautochdir
 set number
@@ -99,6 +101,7 @@ let g:grepper.tools=["rg"]
 call neomake#configure#automake('rw')
 let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_python_enabled_makers = ['flake8', 'pylint'] " ruff
+" let g:neomake_go_enabled_makers = []
 
 
 highlight clear LineNr 

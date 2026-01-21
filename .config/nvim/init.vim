@@ -1,7 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'airblade/vim-gitgutter'
-  Plug 'neomake/neomake'
   Plug 'APZelos/blamer.nvim'
   Plug 'itchyny/lightline.vim'
   Plug 'tpope/vim-fugitive'
@@ -18,6 +17,13 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'elixir-editors/vim-elixir'
   Plug 'rust-lang/rust.vim'
+  Plug 'mason-org/mason.nvim'
+  Plug 'mason-org/mason-lspconfig.nvim'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/nvim-cmp'
 call plug#end()
 
 map <Space> <Leader>
@@ -33,17 +39,8 @@ nmap <silent> <LocalLeader>f :Telescope live_grep only_sort_text=true prompt_tit
 nmap <silent> <Leader>b <cmd>Telescope buffers sort_mru=true<CR>
 
 " Fugitive
-nmap <silent> <LocalLeader>g :tab G<CR>
-nmap <silent> <LocalLeader>gd :Git diff<CR>
-nmap <silent> <LocalLeader>gmt :Git mergetool<CR>
-
-" Ruby
-nmap <silent> <Leader>c :! rubocop -a %<cr>
-nmap <silent> <Leader>C :! rubocop -A %<cr>
-
-" Elixir
-nmap <silent> <Leader>mc :! mix format % --check-formatted<cr>
-nmap <silent> <Leader>mC :! mix format %<cr>
+"nmap <silent> <LocalLeader>g :tab G<CR>
+"nmap <silent> <LocalLeader>gmt :Git mergetool<CR>
 
 nmap <Leader>yy :let @+ = expand("%")<cr>
 
@@ -98,13 +95,7 @@ set termguicolors
 let g:grepper={}
 let g:grepper.tools=["rg"]
 
-call neomake#configure#automake('rw')
-let g:neomake_ruby_enabled_makers = ['rubocop']
-let g:neomake_python_enabled_makers = ['flake8', 'pylint'] " ruff
-" let g:neomake_go_enabled_makers = []
-
-
-highlight clear LineNr 
+highlight clear LineNr
 set t_Co=256
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif

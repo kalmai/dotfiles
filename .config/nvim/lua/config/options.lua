@@ -22,7 +22,7 @@ opt.softtabstop = 0
 
 local g = vim.g
 
-g.github_enterprise_urls = ''
+g.github_enterprise_urls = { '' }
 g.blamer_enabled = 1
 g.blamer_show_in_insert_modes = 0
 g.blamer_delay = 2000

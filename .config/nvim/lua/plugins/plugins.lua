@@ -8,4 +8,8 @@ return {
   'tpope/vim-rhubarb',
   -- 'fatih/vim-go',
   -- 'rust-lang/rust.vim'
+  {
+    'aserowy/tmux.nvim',
+    config = function() return require("tmux").setup() end
+  }
 }

@@ -1,0 +1,18 @@
+[window]
+decorations = "None"
+startup_mode = "Maximized"
+opacity = 0.92
+
+[scrolling]
+history = 50000
+
+[font]
+size = 14
+normal = { family = "Ubuntu Mono NerdFont", style = "Regular" }
+
+[cursor]
+style = { shape = "Block", blinking = "Always" }
+blink_timeout = 0
+
+[colors]
+transparent_background_colors = true

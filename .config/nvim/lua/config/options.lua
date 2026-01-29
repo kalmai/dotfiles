@@ -22,6 +22,7 @@ opt.softtabstop = 0
 
 local g = vim.g
 
+-- g.clipboard = 'pbcopy' -- for macOS
 g.github_enterprise_urls = { '' }
 g.blamer_enabled = 1
 g.blamer_show_in_insert_modes = 0

@@ -2,6 +2,10 @@ return {
   {
     'folke/noice.nvim',
     dependencies = { 'MunifTanjim/nui.nvim' },
+    lazy = false,
+    keys = {
+      { "<leader>?", '<cmd>NoiceTelescope<cr>', desc = "pull up notifications in telescope", silent = true }
+    },
     opts = {
       presets = {
         bottom_search = false,        -- use a classic bottom cmdline for search

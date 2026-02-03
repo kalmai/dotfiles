@@ -4,6 +4,7 @@ return {
     dependencies = {
       'BurntSushi/ripgrep',
       'nvim-telescope/telescope-file-browser.nvim',
+      'nvim-lua/plenary.nvim'
     },
     keys = {
       { "<leader>b",  '<cmd>Telescope buffers sort_mru=true prompt_title=buffers<cr>',                                    desc = "list all open buffers",                                            silent = true },
@@ -40,7 +41,7 @@ return {
           },
         },
         layout_config = {
-          preview_width = 0.65,
+          preview_width = 0.70,
           width = 0.9999,
           height = 100,
         },

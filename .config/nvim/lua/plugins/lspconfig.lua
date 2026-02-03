@@ -52,7 +52,7 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.scroll_docs(-4),
         ["<C-j>"] = cmp.mapping.scroll_docs(4),
-        ["<C-e>"] = cmp.mapping.abort(),
+        ["<C-c>"] = cmp.mapping.abort(),
         ['<C-n>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             if #cmp.get_entries() == 1 then

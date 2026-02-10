@@ -24,6 +24,8 @@ local g = vim.g
 
 -- g.clipboard = 'pbcopy' -- for macOS
 g.github_enterprise_urls = { '' }
+g.go_doc_keywordprg_enabled = 0 -- allows usage of 'K' to be opened in telescope
+g.go_fmt_autosave = 0
 g.blamer_enabled = 1
 g.blamer_show_in_insert_modes = 0
 g.blamer_delay = 2000

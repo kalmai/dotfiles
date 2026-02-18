@@ -1,5 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "williamboman/mason-lspconfig.nvim",
@@ -14,10 +15,8 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "ruby_lsp",
-        "bacon_ls",
         "gopls",
         "lua_ls",
-        "rust_analyzer",
         "ts_ls",
         "cssls",
         "html",
@@ -53,6 +52,7 @@ return {
         ["<C-k>"] = cmp.mapping.scroll_docs(-4),
         ["<C-j>"] = cmp.mapping.scroll_docs(4),
         ["<C-c>"] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<C-n>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             if #cmp.get_entries() == 1 then
@@ -84,6 +84,7 @@ return {
       root_markers = { '.git' },
     })
     vim.diagnostic.config({
+      update_in_insert = false,
       virtual_text = {
         enabled = true,
         prefix = "⇠ "
@@ -91,23 +92,6 @@ return {
       underline = false,
       signs = false,
       wrap = true,
-    })
-    vim.api.nvim_create_autocmd("LspAttach", {
-      group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-      callback = function(ev)
-        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
-        local opts = { buffer = ev.buf }
-        vim.keymap.set("n", "F", vim.lsp.buf.hover, opts)
-        -- vim.keymap.set("n", "K", vim.lsp.buf.definition, opts)
-        -- vim.keymap.set("n", "K", ":Telescope lsp_definitions bufnr=0<cr>", { silent = true })
-        -- vim.keymap.set("n", "M", vim.lsp.buf.declaration, opts)
-        -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-        -- vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "C", function()
-          vim.lsp.buf.format({ async = true })
-        end, opts)
-      end,
     })
   end,
 }

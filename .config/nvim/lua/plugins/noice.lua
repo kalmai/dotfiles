@@ -62,6 +62,24 @@ return {
             winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
           },
         },
+        confirm = {
+          position = {
+            row = "50%",
+            col = "50%",
+          },
+          size = {
+            width = 60,
+            height = "auto",
+          },
+          border = {
+            style = "none",
+            padding = { 1, 2 },
+          },
+          filter_options = {},
+          win_options = {
+            winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+          },
+        }
       },
     }
   }

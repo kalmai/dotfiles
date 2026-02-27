@@ -38,39 +38,23 @@ return {
         lualine_a = { { 'mode', fmt = string.lower } },
         lualine_b = {
           {
-            'filename',
-            path = 1,
+            'buffers',
+            max_length = vim.o.columns * 2 / 2.5,
+            mode = 2,
+            hide_filename_extension = true,
+            -- icons_enabled = false,
             symbols = {
-              modified = '',
-              readonly = '',
-              unnamed = '',
-              newfile = ''
+              modified = ' ++NOT+SAVED++',
+              alternate_file = '',
+              directory = '',
             },
-          },
-          {
-            'filename',
-            path = 0,
-            symbols = {
-              modified = '++NOT+SAVED++',
-              readonly = 'read-only',
-              unnamed = 'no-name',
-              newfile = 'new'
+            buffers_color = {
+              active = { fg = '#ff0000', bg = '#000000' },
             },
-            color = function(_)
-              return { fg = vim.bo.modified and '#aa3355' or '#33aa88' }
-            end,
-            fmt = function(name, _)
-              local t = {}
-              for str in string.gmatch(name, '([^' .. ' ' .. ']+)')
-              do
-                table.insert(t, str)
-              end
-              return t[2]
-            end,
           }
         },
-        lualine_c = { { 'diagnostics', sources = { 'nvim_lsp' }, symbols = { error = 'e', warn = 'w', info = 'i', hint = 'h' }, } },
-        lualine_x = { 'searchcount' },
+        lualine_c = {},
+        lualine_x = { { 'diagnostics', sources = { 'nvim_lsp' }, symbols = { error = 'e', warn = 'w', info = 'i', hint = 'h' }, } },
         lualine_y = { { 'progress', fmt = string.lower } },
         lualine_z = { 'branch' }
       },

@@ -19,42 +19,63 @@ return {
       { "Y",          '<cmd>Telescope diagnostics bufnr=0 prompt_title=diagnostics layout_config={preview_width=0.5}<cr>', desc = "open diagnostics in telescope picker",          silent = true },
     },
     -- change some options
-    opts = {
-      defaults = {
-        borderchars = { "", "", "", "", "", "", "", "" },
-        results_title = "",
-        prompt_title = "",
-        cache_picker = {
-          num_pickers = 20,
-          limit_entries = 50,
-          ignore_empty_prompt = true,
-        },
-        path_display = { "smart" },
-        file_ignore_patterns = { "%.git" },
-        dynamic_preview_title = false,
-        color_devicons = true,
-        mappings = {
-          i = {
-            ["<C-u>"] = false
+    opts = function ()
+      local actions = require("telescope.actions")
+      local actions_state = require("telescope.actions.state")
+
+      local telescope_open_single_or_multi = function(bufnr)
+        local single_selection = actions_state.get_selected_entry()
+        local multi_selection = actions_state.get_current_picker(bufnr):get_multi_selection()
+        if not vim.tbl_isempty(multi_selection) then
+          actions.close(bufnr)
+          for _, file in pairs(multi_selection) do
+            if file.path ~= nil then
+              vim.cmd(string.format("edit %s", file.path))
+            end
+          end
+          vim.cmd(string.format("edit %s", single_selection.path))
+        else
+          actions.select_default(bufnr)
+        end
+      end
+      return {
+        defaults = {
+          borderchars = { "", "", "", "", "", "", "", "" },
+          results_title = "",
+          prompt_title = "",
+          cache_picker = {
+            num_pickers = 20,
+            limit_entries = 50,
+            ignore_empty_prompt = true,
           },
-          n = {
-            ['<c-d>'] = require('telescope.actions').delete_buffer
+          path_display = { "smart" },
+          file_ignore_patterns = { "%.git" },
+          dynamic_preview_title = false,
+          color_devicons = true,
+          mappings = {
+            i = {
+              ["<C-u>"] = false,
+              ["<CR>"] = telescope_open_single_or_multi,
+            },
+            n = {
+              ['<c-d>'] = require("telescope.actions").delete_buffer
+            },
+          },
+          layout_config = {
+            preview_width = 0.70,
+            width = 0.9999,
+            height = 100,
           },
         },
-        layout_config = {
-          preview_width = 0.70,
-          width = 0.9999,
-          height = 100,
-        },
-      },
-      extensions = {
-        file_browser = {
-          cwd_to_path = true,
-          auto_depth = 2,
-          files = true,
-          display_stat = {},
+        extensions = {
+          file_browser = {
+            cwd_to_path = true,
+            auto_depth = 2,
+            files = true,
+            display_stat = {},
+          }
         }
       }
-    },
+    end
   },
 }

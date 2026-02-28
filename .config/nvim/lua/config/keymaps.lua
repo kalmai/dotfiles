@@ -7,3 +7,4 @@ vim.keymap.set("n", "<C-s>", '<C-W><C-R>', { desc = "rotate split buffers" })
 vim.keymap.set("n", "<C-z>", '<Nop>', { desc = "disable sending nvim to background so we can use tmux.nvim to fullsize panes with the key" })
 
 for count=1,12 do vim.keymap.set("n", "<F" .. count .. ">", "<cmd>LualineBuffersJump! " .. count .. "<cr>") end
+vim.keymap.set("n", "<leader>j", ":LualineBuffersJump! ")

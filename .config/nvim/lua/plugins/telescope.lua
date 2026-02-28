@@ -7,7 +7,7 @@ return {
       'nvim-lua/plenary.nvim'
     },
     keys = {
-      { "<leader>b",  '<cmd>Telescope buffers sort_mru=true prompt_title=buffers<cr>',                                     desc = "list all open buffers",                         silent = true },
+      { "<leader>b",  '<cmd>Telescope buffers sort_mru=true prompt_title=buffers select_current=true<cr>',                 desc = "list all open buffers",                         silent = true },
       { "<leader>r",  "<cmd>Telescope resume prompt_title=last_picker<cr>",                                                desc = "reopen most recent picker",                     silent = true },
       { "<leader>h",  "<cmd>Telescope pickers prompt_title=picker_hist<cr>",                                               desc = "view history of recent pickers",                silent = true },
       { "<leader>n",  "<cmd>Telescope file_browser hidden=true prompt_title=pwd_files<cr>",                                desc = "open file picker at root of pwd",               silent = true },
@@ -19,7 +19,7 @@ return {
       { "Y",          '<cmd>Telescope diagnostics bufnr=0 prompt_title=diagnostics layout_config={preview_width=0.5}<cr>', desc = "open diagnostics in telescope picker",          silent = true },
     },
     -- change some options
-    opts = function ()
+    opts = function()
       local actions = require("telescope.actions")
       local actions_state = require("telescope.actions.state")
 
@@ -58,7 +58,9 @@ return {
               ["<CR>"] = telescope_open_single_or_multi,
             },
             n = {
-              ['<c-d>'] = require("telescope.actions").delete_buffer
+              ['<c-d>'] = require("telescope.actions").delete_buffer,
+              ['<c-n>'] = require("telescope.actions").move_selection_next,
+              ['<c-p>'] = require("telescope.actions").move_selection_previous,
             },
           },
           layout_config = {

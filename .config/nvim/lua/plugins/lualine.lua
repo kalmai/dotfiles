@@ -39,7 +39,7 @@ return {
         lualine_b = {
           {
             'filename',
-            path = 0,
+            path = 1,
             symbols = {
               modified = ' ●',
               readonly = 'read-only',
@@ -57,7 +57,7 @@ return {
         lualine_a = {
           {
             'filename',
-            path = 0,
+            path = 1,
             symbols = {
               modified = ' ●',
               readonly = 'read-only',

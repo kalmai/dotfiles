@@ -46,7 +46,6 @@ return {
           cache_picker = {
             num_pickers = 20,
             limit_entries = 50,
-            ignore_empty_prompt = true,
           },
           path_display = { "smart" },
           file_ignore_patterns = { "%.git" },
@@ -54,17 +53,22 @@ return {
           color_devicons = true,
           mappings = {
             i = {
-              ["<C-u>"] = false,
               ["<CR>"] = telescope_open_single_or_multi,
             },
             n = {
+              -- use file_browser for file management in non file_browser pickers
+              ['c'] = require("telescope._extensions.file_browser.actions").create,
+              ['r'] = require("telescope._extensions.file_browser.actions").rename,
+              ['m'] = require("telescope._extensions.file_browser.actions").move,
+              ['y'] = require("telescope._extensions.file_browser.actions").copy,
+              ['d'] = require("telescope._extensions.file_browser.actions").remove,
               ['<c-d>'] = require("telescope.actions").delete_buffer,
               ['<c-n>'] = require("telescope.actions").move_selection_next,
               ['<c-p>'] = require("telescope.actions").move_selection_previous,
             },
           },
           layout_config = {
-            preview_width = 0.70,
+            preview_width = 0.60,
             width = 0.9999,
             height = 100,
           },

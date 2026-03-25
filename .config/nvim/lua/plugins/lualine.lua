@@ -47,6 +47,10 @@ return {
               newfile = 'new'
             },
           },
+          {
+            'filetype',
+            icon_only = true,
+          },
         },
         lualine_c = { { 'diagnostics', sources = { 'nvim_lsp' }, symbols = { error = 'e', warn = 'w', info = 'i', hint = 'h' }, } },
         lualine_x = { { 'datetime', style = "%H:%M" } },

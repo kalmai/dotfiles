@@ -5,12 +5,10 @@ require("config.options")
 require("config.keymaps")
 require("config.autocmds")
 require("plugins.lspconfig")
-require("darkrose").setup({
-  styles = {
-    bold = true,      -- Enable bold highlights for some highlight groups
-    italic = false,   -- Enable italic highlights for some highlight groups
-    underline = true, -- Enable underline highlights for some highlight groups
-  }
+require('vague').setup({
+  transparent = false, -- If true, background is not set
+  bold = true, -- Disable bold globally
+  italic = false, -- Disable italic globally
 })
 
-vim.cmd.colorscheme("darkrose")
+vim.cmd.colorscheme("vague")

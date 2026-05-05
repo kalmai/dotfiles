@@ -1,5 +1,6 @@
 return {
   'water-sucks/darkrose.nvim',
+  'vague-theme/vague.nvim',
   'airblade/vim-gitgutter',
   'APZelos/blamer.nvim',
   'tpope/vim-fugitive',

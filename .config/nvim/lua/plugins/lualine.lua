@@ -84,14 +84,14 @@ return {
             max_length = vim.o.columns * 4,
             mode = 2,
             hide_filename_extension = true,
-            -- icons_enabled = false,
+            icons_enabled = false,
             symbols = {
               modified = ' ●',
               alternate_file = '',
               directory = '',
             },
             buffers_color = {
-              active = { fg = '#ff0000', bg = '#000000' },
+              active = { fg = '#f3be7c' },
             },
           }
         },

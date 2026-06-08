@@ -76,30 +76,7 @@ return {
         lualine_y = {},
         lualine_z = { 'branch' }
       },
-      tabline = {
-        lualine_a = {},
-        lualine_b = {
-          {
-            'buffers',
-            max_length = vim.o.columns * 4,
-            mode = 2,
-            hide_filename_extension = true,
-            icons_enabled = false,
-            symbols = {
-              modified = ' ●',
-              alternate_file = '',
-              directory = '',
-            },
-            buffers_color = {
-              active = { fg = '#f3be7c' },
-            },
-          }
-        },
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
-      },
+      tabline = {},
       winbar = {},
       inactive_winbar = {},
       extensions = {}

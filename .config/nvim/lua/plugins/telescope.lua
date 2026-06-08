@@ -16,7 +16,7 @@ return {
       { "<leader>f",  '<cmd>Telescope live_grep only_sort_text=true smartcase=true prompt_title=grep<cr>',                 desc = "search for a term in pwd",                      silent = true },
       { "-",          "<cmd>Telescope file_browser path=%:p:h select_buffer=true hidden=true prompt_title=cwd_files<cr>",  desc = "browse files in current directory",             silent = true },
       { "K",          '<cmd>Telescope lsp_definitions bufnr=0 prompt_title=go_def<cr>',                                    desc = "go to def. if multiple, open telescope picker", silent = true },
-      { "Y",          '<cmd>Telescope diagnostics bufnr=0 prompt_title=diagnostics layout_config={preview_width=0.5}<cr>', desc = "open diagnostics in telescope picker",          silent = true },
+      { "Y",          '<cmd>Telescope diagnostics bufnr=0 prompt_title=diagnostics wrap_results=true line_width=full disable_coordinates=true<cr>', desc = "open diagnostics in telescope picker",          silent = true },
     },
     -- change some options
     opts = function()
